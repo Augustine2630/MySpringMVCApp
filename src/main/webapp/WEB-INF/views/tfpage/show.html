@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowAllTheContent</title>
+</head>
+<body>
+<p th:text="${currentContent.getContentName() + '. '}">VALUE</p>
+<p th:text="${'Information: ' + currentContent.getInfo()}">VALUE</p>
+<p th:text="${currentContent.getId()}">VALUE</p>
+
+<a th:href="@{/weapons/{id}/edit(id=${currentContent.getId()})}">Edit</a>
+
+<!-- <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}"> -->
+<!--     <input type="submit" value="Delete"/> -->
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<p>sueta</p>
+
+<div th:each="content : ${weapons}">
+    <a th:href="@{/tfpage/{id}(id=${content.getId()})}"
+       th:text="${content.getId() + '.' + content.getContentName()}">weapon</a>
+</div>
+
+<br/>
+<hr/>
+
+<!-- <a href="/people/new">Create new person</a> -->
+
+</body>
+</html>
