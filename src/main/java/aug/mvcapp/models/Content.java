@@ -1,8 +1,18 @@
 package aug.mvcapp.models;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class Content {
+
+
     private int id;
+
+    @NotEmpty(message = "Empty name!")
+    @Size(min=2, max=40, message = "Name should be between 2 and 30 characters")
     private String contentName;
+
+    @NotEmpty(message = "Email should not be empty")
     private String info;
 
     public Content() {

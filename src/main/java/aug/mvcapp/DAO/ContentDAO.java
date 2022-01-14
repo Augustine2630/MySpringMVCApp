@@ -26,17 +26,17 @@ public class ContentDAO {
                 .stream().findAny().orElse(null);
     }
 
-//    public void save(Content content){
-//        jdbcTemplate.update("INSERT INTO Content VALUES(1, ?, ?)", content.getContentName(), content.getInfo());
-//    }
-//
+    public void save(Content content){
+        jdbcTemplate.update("INSERT INTO Content VALUES((SELECT count(id) from content) + 1, ?, ?)", content.getContentName(), content.getInfo());
+    }
+
     public void update(int id, Content updatedContent){
         jdbcTemplate.update("UPDATE Content SET name=?, info=? WHERE id=?", updatedContent.getContentName(),
                 updatedContent.getInfo(), id);
     }
-//
-//    public void delete(int id){
-//        jdbcTemplate.update("DELETE FROM Content WHERE id=?", id);
-//    }
+
+    public void delete(int id){
+        jdbcTemplate.update("DELETE FROM Content WHERE id=?", id);
+    }
 
 }

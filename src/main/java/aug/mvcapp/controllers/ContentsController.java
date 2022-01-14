@@ -28,45 +28,45 @@ public class ContentsController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("currentContent", contentDAO.show(id));
+        model.addAttribute("content", contentDAO.show(id));
         return "tfpage/show";
     }
 
-//    @GetMapping("/new")
-//    public String newPerson(@ModelAttribute("content") Content content) {
-//        return "people/new";
-//    }
-//
-//    @PostMapping()
-//    public String create(@ModelAttribute("content") @Valid Content content,
-//                         BindingResult bindingResult) {
-//        if (bindingResult.hasErrors())
-//            return "tfpage/new";
-//
-//        contentDAO.save(content);
-//        return "redirect:/tfpage";
-//    }
-//
-//    @GetMapping("/{id}/edit")
-//    public String edit(Model model, @PathVariable("id") int id) {
-//        model.addAttribute("content", contentDAO.show(id));
-//        return "tfpage/edit";
-//    }
+    @GetMapping("/new")
+    public String newPerson(@ModelAttribute("content") Content content) {
+        return "tfpage/new";
+    }
 
-//    @PatchMapping("/{id}")
-//    public String update(@ModelAttribute("person") @Valid Content content, BindingResult bindingResult,
-//                         @PathVariable("id") int id) {
-//        if (bindingResult.hasErrors())
-//            return "tfpage/edit";
-//
-//        contentDAO.update(id, content);
-//        return "redirect:/tfpage";
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public String delete(@PathVariable("id") int id) {
-//        contentDAO.delete(id);
-//        return "redirect:/tfpage";
-//    }
+    @PostMapping()
+    public String create(@ModelAttribute("content") @Valid Content content,
+                         BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "tfpage/new";
+
+        contentDAO.save(content);
+        return "redirect:/tfpage";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") int id) {
+        model.addAttribute("content", contentDAO.show(id));
+        return "tfpage/edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("content") @Valid Content content, BindingResult bindingResult,
+                         @PathVariable("id") int id) {
+        if (bindingResult.hasErrors())
+            return "tfpage/edit";
+
+        contentDAO.update(id, content);
+        return "redirect:/tfpage";
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
+        contentDAO.delete(id);
+        return "redirect:/tfpage";
+    }
 
 }

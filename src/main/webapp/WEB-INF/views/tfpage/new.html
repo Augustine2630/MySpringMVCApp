@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/tfpage}" th:object="${newContent}">
+    <label for="contentName">Enter name: </label>
+    <input type="text" th:field="*{contentName}" id="contentName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('contentName')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="info">Enter info: </label>
+    <input type="text" th:field="*{info}" id="info"/>
+    <div style="color:red" th:if="${#fields.hasErrors('info')}" th:errors="*{info}">Info Error</div>
+    <br/>
+
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

@@ -5,14 +5,14 @@
     <title>ShowAllTheContent</title>
 </head>
 <body>
-<p th:text="${currentContent.getContentName() + '. '}">VALUE</p>
-<p th:text="${'Information: ' + currentContent.getInfo()}">VALUE</p>
-<p th:text="${currentContent.getId()}">VALUE</p>
+<p th:text="${content.getContentName() + '. '}">VALUE</p>
+<p th:text="${'Information: ' + content.getInfo()}">VALUE</p>
+<p th:text="${content.getId()}">VALUE</p>
 
-<a th:href="@{/weapons/{id}/edit(id=${currentContent.getId()})}">Edit</a>
+<a th:href="@{/tfpage/{id}/edit(id=${content.getId()})}">Edit</a>
 
-<!-- <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}"> -->
-<!--     <input type="submit" value="Delete"/> -->
+<form th:method="DELETE" th:action="@{/tfpage/{id}(id=${content.getId()})}">
+    <input type="submit" value="Delete"/>
 
 </body>
 </html>
