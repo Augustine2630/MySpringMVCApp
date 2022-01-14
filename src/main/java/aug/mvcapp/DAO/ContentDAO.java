@@ -30,9 +30,9 @@ public class ContentDAO {
         jdbcTemplate.update("INSERT INTO Content VALUES((SELECT count(id) from content) + 1, ?, ?)", content.getContentName(), content.getInfo());
     }
 
-    public void update(int id, Content updatedContent){
-        jdbcTemplate.update("UPDATE Content SET name=?, info=? WHERE id=?", updatedContent.getContentName(),
-                updatedContent.getInfo(), id);
+    public void update(int id, Content content){
+        jdbcTemplate.update("UPDATE Content SET name=?, info=? WHERE id=?", content.getContentName(),
+                content.getInfo(), id);
     }
 
     public void delete(int id){

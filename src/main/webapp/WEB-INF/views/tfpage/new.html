@@ -6,16 +6,14 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/tfpage}" th:object="${newContent}">
-    <label for="contentName">Enter name: </label>
-    <input type="text" th:field="*{contentName}" id="contentName"/>
-    <div style="color:red" th:if="${#fields.hasErrors('contentName')}" th:errors="*{name}">Name Error</div>
+<form th:method="POST" th:action="@{/tfpage}" th:object="${content}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{contentName}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
     <br/>
     <label for="info">Enter info: </label>
     <input type="text" th:field="*{info}" id="info"/>
-    <div style="color:red" th:if="${#fields.hasErrors('info')}" th:errors="*{info}">Info Error</div>
-    <br/>
-
+    <div style="color:red" th:if="${#fields.hasErrors('info')}" th:errors="*{info}">Age Error</div>
     <br/>
     <input type="submit" value="Create!"/>
 </form>
