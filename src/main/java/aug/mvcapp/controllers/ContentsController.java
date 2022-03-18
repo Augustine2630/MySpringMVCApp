@@ -1,7 +1,5 @@
 package aug.mvcapp.controllers;
 
-
-
 import aug.mvcapp.models.Content;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -9,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import aug.mvcapp.DAO.ContentDAO;
-
 
 @Controller
 @RequestMapping("/tfpage")

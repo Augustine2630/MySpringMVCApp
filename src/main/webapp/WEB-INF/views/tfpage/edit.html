@@ -13,7 +13,7 @@
     <br/>
     <label for="info">Enter info: </label>
     <input type="text" th:field="*{info}" id="info"/>
-    <div style="color:red" th:if="${#fields.hasErrors('ifno')}" th:errors="*{info}">Info Error</div>
+    <div style="color:red" th:if="${#fields.hasErrors('info')}" th:errors="*{info}">Info Error</div>
     <br/>
     <input type="submit" value="Update!"/>
 </form>
